@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CONTACT | Yumi Portfolio</title>
+
+    <!-- 共通スタイル（ヘッダーなど） -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- CONTACT 専用 -->
+    <link rel="stylesheet" href="assets/css/contact.css" />
+</head>
+
+<body class="contact-page-root">
+    <!-- ヘッダー：ホーム/Skills/Aboutと同じ構造 -->
+    <header class="site-header">
+        <nav class="nav">
+            <a class="brand" href="index.html" aria-label="Yumi Home">
+                <!-- インラインSVGロゴ（共通） -->
+                <svg class="logo" width="30" height="30" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+                    <circle cx="14" cy="14" r="12" stroke="white" stroke-width="2" fill="none" />
+                    <path d="M9 12c2.2 0 4 2.2 5 5 1-2.8 2.8-5 5-5" stroke="white" stroke-width="2"
+                        stroke-linecap="round" fill="none" />
+                </svg>
+                <span class="brand-text">Yumi</span>
+            </a>
+            <div class="menu">
+                <a class="jelly-link" href="skills.html">SKILLS</a>
+                <a class="jelly-link" href="works.html">WORK</a>
+                <a class="jelly-link" href="about.html">ABOUT</a>
+                <a class="jelly-link" href="contact.html" aria-current="page">CONTACT</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contact-page">
+        <section class="contact-hero">
+            <h1 class="contact-title">CONTACT</h1>
+            <p class="contact-note">お問い合わせは、メールにてお願いいたします。</p>
+        </section>
+
+        <section class="contact-card" role="region" aria-labelledby="contact-email">
+            <a id="contact-email" class="contact-mail" href="mailto:abc12345@gmail.com">
+                <!-- メールアイコン（白） -->
+                <svg class="mail-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor"
+                        d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z" />
+                </svg>
+                <span class="mail-text">ym.lana0217@gmail.com</span>
+            </a>
+            <p class="contact-small">※ 2営業日以内のご返信を心がけています。</p>
+        </section>
+    </main>
+    <div class="bubble-layer" aria-hidden="true"></div>
+    <!-- Footer（共通） -->
+    <footer class="site-footer" aria-label="Footer">
+        <div class="footer-inner">
+            <p class="footer-copy">© 2025 Yumi Takahashi Portfolio</p>
+            <nav class="footer-nav">
+                <a href="index.html">HOME</a>
+                <a href="skills.html">SKILLS</a>
+                <a href="works.html">WORKS</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html" aria-current="page">CONTACT</a>
+            </nav>
+        </div>
+    </footer>
+    <script src="assets/js/main.js" defer></script>
+
+</body>
+
+</html>

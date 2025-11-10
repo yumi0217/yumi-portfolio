@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ABOUT | Yumi Portfolio</title>
+
+    <!-- 共通スタイル（ホームと同じ） -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- このページ専用 -->
+    <link rel="stylesheet" href="assets/css/about.css" />
+</head>
+
+<body class="about-page-root">
+    <!-- Header（共通） -->
+    <header class="site-header">
+        <nav class="nav">
+            <a class="brand" href="index.html" aria-label="Yumi Home">
+                <!-- inline logo -->
+                <svg class="logo" width="30" height="30" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+                    <circle cx="14" cy="14" r="12" stroke="white" stroke-width="2" fill="none" />
+                    <path d="M9 12c2.2 0 4 2.2 5 5 1-2.8 2.8-5 5-5" stroke="white" stroke-width="2"
+                        stroke-linecap="round" fill="none" />
+                </svg>
+                <span class="brand-text">Yumi</span>
+            </a>
+            <div class="menu">
+                <a class="jelly-link" href="skills.html">SKILLS</a>
+                <a class="jelly-link" href="works.html">WORK</a>
+                <a class="jelly-link" href="about.html" aria-current="page">ABOUT</a>
+                <a class="jelly-link" href="contact.html">CONTACT</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="about-page">
+        <section class="about-hero">
+            <h1 class="about-title">ABOUT</h1>
+
+            <!-- プロフィール画像（任意の画像に差し替え） -->
+            <!-- 例: assets/img/profile.jpg を用意してください -->
+            <figure class="avatar">
+                <img src="assets/img/プロフィール.jpeg" />
+            </figure>
+
+            <h2 class="name">高橋 裕美 <span class="bar">|</span> <span class="en">YUMI</span></h2>
+            <p class="role">Webアプリケーション開発エンジニア</p>
+
+            <div class="bio">
+                <p>
+                    フロントエンド・バックエンドの両面を担当。主な使用技術は
+                    <strong>JavaScript / PHP</strong>、フレームワークは
+                    <strong>Laravel</strong> です。
+                </p>
+                <p>
+                    これまでに <strong>フリマアプリ</strong>、<strong>勤怠管理</strong>、<strong>飲食店予約</strong> を中心に
+                    企画〜実装〜UI調整まで一貫して取り組んできました。丁寧なコミュニケーションと
+                    再現性の高いコーディングで、お客様とユーザー双方の体験価値を高めます。
+                </p>
+                <p class="small">
+                    お仕事をご依頼いただくことに感謝し、誠実で責任のある対応を心がけています。
+                </p>
+            </div>
+
+            <ul class="facts">
+                <li><span>得意:</span> 認証/権限、バリデーション、UI構築、ER設計</li>
+                <li><span>環境:</span> Docker / Docker Compose、GitHub</li>
+                <li><span>インフラ:</span> AWS（S3 / EC2 / RDS ※学習・検証中）</li>
+            </ul>
+        </section>
+    </main>
+    <div class="bubble-layer" aria-hidden="true"></div>
+    <footer class="site-footer" aria-label="Footer">
+        <div class="footer-inner">
+            <p class="footer-copy">© 2025 Yumi Takahashi Portfolio</p>
+            <nav class="footer-nav">
+                <a href="index.html">HOME</a>
+                <a href="skills.html">SKILLS</a>
+                <a href="works.html">WORKS</a>
+                <a href="about.html" aria-current="page">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+        </div>
+    </footer>
+    <script src="assets/js/main.js" defer></script>
+</body>
+
+</html>

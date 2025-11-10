@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WORK DETAIL | Yumi Portfolio</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/work-portfolio.css" />
+</head>
+
+<body class="work-detail">
+    <header class="site-header">
+        <nav class="nav">
+            <a class="brand" href="index.html" aria-label="Yumi Home">
+                <svg class="logo" width="30" height="30" viewBox="0 0 28 28" aria-hidden="true">
+                    <circle cx="14" cy="14" r="12" stroke="white" stroke-width="2" fill="none" />
+                    <path d="M9 12c2.2 0 4 2.2 5 5 1-2.8 2.8-5 5-5" stroke="white" stroke-width="2"
+                        stroke-linecap="round" fill="none" />
+                </svg>
+                <span class="brand-text">Yumi</span>
+            </a>
+            <div class="menu">
+                <a class="jelly-link" href="skills.html">SKILLS</a>
+                <a class="jelly-link" href="works.html">WORK</a>
+                <a class="jelly-link" href="about.html">ABOUT</a>
+                <a class="jelly-link" href="contact.html">CONTACT</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="work-page">
+        <div class="work-header">
+            <h1 class="work-title">Yumi Portfolio（ポートフォリオサイト）</h1>
+            <div class="chips">
+                <span class="chip chip-private">個人開発</span>
+                <span class="chip chip-ongoing">ongoing</span>
+            </div>
+        </div>
+
+        <section class="work-body">
+            <!-- スライダー（reseと同じ構造・JSで動作） -->
+            <figure class="slider" aria-label="作品画像ギャラリー">
+                <button class="nav-btn prev" aria-label="前の画像">&#10094;</button>
+                <div class="track" id="slider-track">
+                    <!-- 画像パスは実ファイルに合わせて配置してね -->
+                    <img src="assets/img/works/portfolio/ポートフォリオホーム画面.png" alt="トップページ">
+                    <img src="assets/img/works/portfolio/ポートフォリオwork一覧画面.png" alt="WORKS一覧">
+                    <img src="assets/img/works/portfolio/ポートフォリオwork詳細画面.png" alt="WORK詳細ページ">
+                    <img src="assets/img/works/portfolio/ポートフォリオスキル一覧画面.png" alt="SKILLSページ">
+                    <img src="assets/img/works/portfolio/ポートフォリオABOUT画面.png" alt="ABOUTページ">
+                    <img src="assets/img/works/portfolio/ポートフォリオcontact画面.png" alt="CONTACTページ">
+                </div>
+                <button class="nav-btn next" aria-label="次の画像">&#10095;</button>
+                <div class="dots" id="slider-dots" aria-hidden="true"></div>
+            </figure>
+
+            <!-- メタ情報（reseと同じDL構造） -->
+            <aside class="work-meta">
+                <dl class="meta">
+                    <dt>期間</dt>
+                    <dd>2025年10月28日 〜 制作中</dd>
+
+                    <dt>概要</dt>
+                    <dd>Yumiの作品・スキル・プロフィールをまとめたポートフォリオ。共通ヘッダー/背景テーマ、WORKS一覧・詳細、レスポンシブ対応、軽量JSスライダーを実装。</dd>
+
+                    <dt>URL</dt>
+                    <dd>
+                        <a class="ext" href="#" target="_blank" rel="noopener">（公開URL or GitHub）</a>
+                    </dd>
+
+                    <dt>使用技術</dt>
+                    <dd>
+                        <ul class="tech">
+                            <li>HTML5 / CSS3</li>
+                            <li>JavaScript (ES6+ / バニラ)</li>
+                            <li>BEM風CSS設計 / レスポンシブ</li>
+                            <li>（必要に応じて）Vite / 画像最適化</li>
+                        </ul>
+                    </dd>
+                </dl>
+
+                <div class="back-link">
+                    <a class="jelly-link" href="works.html">Works 一覧へ</a>
+                </div>
+            </aside>
+        </section>
+    </main>
+    <div class="bubble-layer" aria-hidden="true"></div>
+    <footer class="site-footer site-footer--stack">
+        <div class="footer-inner">
+            <p class="copy">© 2025 Yumi Takahashi Portfolio</p>
+            <nav class="footer-nav" aria-label="Footer">
+                <a href="index.html">HOME</a>
+                <a href="skills.html">SKILLS</a>
+                <a href="works.html">WORKS</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+        </div>
+    </footer>
+
+
+    <!-- reseと同じスライダーJSを流用 -->
+    <script src="assets/js/work-detail.js"></script>
+    <script src="assets/js/main.js" defer></script>
+</body>
+
+</html>

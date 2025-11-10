@@ -1,0 +1,377 @@
+/* ---------- Base ---------- */
+:root {
+    --bg1: #061b2e;
+    --bg2: #0c2e4c;
+    --ink: #ffffff;
+    --ink-muted: #cfe6ff;
+    --shadow: rgba(0, 0, 0, .35);
+    --maxw: 1120px;
+
+    /* ヘッダー実高さに合わせて調整 */
+    --header-h: 72px;
+
+    /* ホーム用フッターの見込み高さ */
+    --footer-h: 110px;
+
+    /* 背景クラゲの縦位置（％が小さいほど上寄せ） */
+    --bg-jelly-y: 12%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans JP", Meiryo, sans-serif;
+    background: var(--bg1);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ===== 背景：グラデ（下地） ===== */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    pointer-events: none;
+    background:
+        radial-gradient(120% 100% at 50% -20%, rgba(120, 190, 255, .10), rgba(120, 190, 255, 0) 60%),
+        linear-gradient(180deg, #061b2e 0%, #0c2e4c 100%);
+}
+
+/* ===== 背景：クラゲ画像（全面フィット） ===== */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background-image: url("../img/クラゲの群れ.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% var(--bg-jelly-y);
+}
+
+/* 横に広い(16:9〜) → 少しだけ上へ */
+@media (min-aspect-ratio: 16/9) {
+    :root {
+        --bg-jelly-y: 10%;
+    }
+}
+
+/* ウルトラワイド(21:9〜) → さらに上へ */
+@media (min-aspect-ratio: 21/9) {
+    :root {
+        --bg-jelly-y: 8%;
+    }
+}
+
+/* 縦長(4:3以下) → 少し下げる */
+@media (max-aspect-ratio: 4/3) {
+    :root {
+        --bg-jelly-y: 18%;
+    }
+}
+
+/* ---------- Header ---------- */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    height: var(--header-h);
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+.nav {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .45);
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 3px var(--shadow));
+}
+
+.brand-text {
+    font-size: 30px;
+}
+
+/* menu */
+.menu {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.jelly-link {
+    position: relative;
+    display: inline-block;
+    padding: 10px 14px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: .08em;
+    border-radius: 26px;
+    border: 1px solid transparent;
+    transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.jelly-link:hover {
+    animation: jelly .6s ease;
+    background: rgba(255, 255, 255, .12);
+    border-color: rgba(255, 255, 255, .35);
+    box-shadow: 0 6px 18px rgba(120, 190, 255, .18) inset;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    position: relative;
+    min-height: min(86vh, 980px);
+    display: grid;
+    place-items: center;
+    text-align: center;
+    overflow: hidden;
+    margin-top: calc(-1 * var(--header-h));
+    padding-top: var(--header-h);
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(120% 100% at 50% -20%, rgba(180, 230, 255, .12), transparent 60%),
+        linear-gradient(180deg, rgba(0, 0, 0, .05), rgba(0, 0, 0, .10) 50%, rgba(0, 0, 0, 0) 90%);
+}
+
+.title {
+    margin: 6px 0 14px;
+    font-size: clamp(34px, 9vw, 84px);
+    line-height: 1.05;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, .28);
+}
+
+.tagline {
+    margin: 0;
+    color: var(--ink-muted);
+    font-size: clamp(15px, 2.8vw, 22px);
+    line-height: 1.9;
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes jelly {
+    0% {
+        transform: scale(1)
+    }
+
+    25% {
+        transform: scale(1.18, .82)
+    }
+
+    45% {
+        transform: scale(.94, 1.08)
+    }
+
+    70% {
+        transform: scale(1.04, .98)
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
+
+@keyframes bubble-rise {
+    0% {
+        transform: translate(0, 0) scale(var(--scale, 1));
+        opacity: 0
+    }
+
+    8% {
+        opacity: .55
+    }
+
+    60% {
+        opacity: .55
+    }
+
+    100% {
+        transform: translate(calc(var(--dx, 0px)*6), -115vh) scale(calc(var(--scale, 1)*1.18));
+        opacity: 0
+    }
+}
+
+/* ==== 水泡レイヤー ==== */
+.bubble-layer {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    /* 背景画像より上 */
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -12vh;
+    left: var(--left, 50%);
+    width: var(--size, 12px);
+    height: var(--size, 12px);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, .35);
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, .25);
+    opacity: 0;
+    transform: translate(0, 0) scale(var(--scale, 1));
+    animation: bubble-rise var(--duration, 14s) linear var(--delay, 0s) infinite;
+}
+
+.bubble::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .35) 0%, rgba(255, 255, 255, 0) 40%);
+    mask: radial-gradient(circle at 30% 30%, rgba(0, 0, 0, .9), transparent 60%);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    margin-top: 80px;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-copy {
+    font-size: 14px;
+    color: #cfe6ff;
+}
+
+/* ---------- Home 固定フッター ---------- */
+body.home {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
+body.home main {
+    flex: 1 0 auto;
+}
+
+body.home .hero {
+    min-height: calc(100dvh - var(--header-h) - var(--footer-h));
+}
+
+body.home .site-footer {
+    flex: 0 0 var(--footer-h);
+    margin-top: 0;
+    padding: 20px 16px;
+    background: transparent;
+    border-top: 0;
+}
+
+body.home .footer-inner {
+    height: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: grid;
+    place-content: center;
+    gap: 14px;
+}
+
+@media (max-height:640px) {
+    body.home {
+        overflow-y: auto;
+    }
+
+    body.home .hero {
+        min-height: auto;
+        padding-bottom: 40px;
+    }
+}
+
+/* ===== Footer: style restore & link reset ===== */
+.site-footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, .05);
+    border-top: 1px solid rgba(255, 255, 255, .10);
+    margin-top: 80px;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-copy {
+    font-size: 14px;
+    color: #cfe6ff;
+    margin: 0;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 22px;
+    /* ナビ間隔 */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ここが重要：リンクの色と下線を制御 */
+.site-footer .footer-nav a {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-decoration: none;
+    /* 下線消す */
+    transition: opacity .3s;
+}
+
+.site-footer .footer-nav a:hover {
+    opacity: .75;
+    text-decoration: none;
+}
+
+.site-footer .footer-nav a:visited {
+    color: #fff;
+    /* 訪問済みでも紫にしない */
+}

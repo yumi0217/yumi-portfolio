@@ -1,0 +1,236 @@
+:root {
+    --card: rgba(255, 255, 255, .08);
+    --card-border: rgba(255, 255, 255, .16);
+    --glow: rgba(120, 190, 255, .18);
+    --ink: #fff;
+    --ink-soft: #cfe6ff;
+    --maxw: 880px;
+}
+
+/* 先頭あたりに追加：ホーム用の固定背景をOFF */
+body::before {
+    content: none !important;
+    background: none !important;
+}
+
+/* ==== WORKS を SKILLS と同じ色に ==== */
+/* ホームのクラゲ背景をOFF */
+.works-page-root::before {
+    content: none !important;
+}
+
+/* 濃→淡のブルーグラデ＋うっすら放射グラデ（SKILLSと同じ） */
+.works-page-root {
+    background:
+        radial-gradient(120% 100% at 20% -10%, rgba(120, 190, 255, .18), rgba(120, 190, 255, 0) 60%),
+        linear-gradient(180deg, #043056 0%, #0b4a7a 45%, #0d5b97 100%);
+    min-height: 100dvh;
+    color: #fff;
+}
+
+/* 念のため下層は透過 */
+.works-page-root main,
+.works-page-root section,
+.works-page-root footer {
+    background: transparent !important;
+}
+
+/* ページ余白 */
+.contact-page {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: clamp(56px, 8vw, 96px) 16px 120px;
+    text-align: center;
+}
+
+/* 見出し帯（ヘッダー下に余白を確保） */
+.contact-hero {
+    margin-top: calc(-1 * var(--header-h, 64px));
+    padding-top: calc(var(--header-h, 64px) + 16px);
+}
+
+.contact-title {
+    margin: 0 0 10px;
+    letter-spacing: .08em;
+    font-size: clamp(28px, 6vw, 48px);
+}
+
+.contact-note {
+    margin: 0 0 28px;
+    color: var(--ink-soft);
+    font-size: 14px;
+}
+
+/* メール表示カード */
+.contact-card {
+    margin: 0 auto;
+    max-width: 560px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .18), inset 0 6px 18px var(--glow);
+    backdrop-filter: blur(2px);
+}
+
+.contact-mail {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: .02em;
+    padding: 10px 14px;
+    border-radius: 12px;
+    transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.contact-mail:hover {
+    background: rgba(255, 255, 255, .10);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, .25), inset 0 6px 18px var(--glow);
+}
+
+.mail-icon {
+    color: var(--ink);
+}
+
+.contact-small {
+    margin: 10px 0 0;
+    color: var(--ink-soft);
+    font-size: 12px;
+}
+
+/* 下層要素は透過（帯の混ざりを防止） */
+main,
+section,
+footer {
+    background: transparent !important;
+}
+
+/* 背景画像は一段下へ */
+body::before {
+    z-index: -2;
+    /* 既存が -1 なら -2 に変更 */
+}
+
+/* ==== 水泡レイヤー ==== */
+.bubble-layer {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    /* 背景画像より上、本文より下 */
+    pointer-events: none;
+    /* クリックに干渉しない */
+    overflow: hidden;
+}
+
+/* 泡の見た目（線だけ or うすい塗り） */
+.bubble {
+    position: absolute;
+    bottom: -12vh;
+    /* 画面下の外から出現 */
+    left: var(--left, 50%);
+    width: var(--size, 12px);
+    height: var(--size, 12px);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, .35);
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, .25);
+    opacity: 0;
+    transform: translate(0, 0) scale(var(--scale, 1));
+    animation: bubble-rise var(--duration, 14s) linear var(--delay, 0s) infinite;
+}
+
+/* ちょっとキラッと光る縁取り（任意） */
+.bubble::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at 30% 30%,
+            rgba(255, 255, 255, .35) 0%,
+            rgba(255, 255, 255, 0) 40%);
+    mask: radial-gradient(circle at 30% 30%, rgba(0, 0, 0, .9), transparent 60%);
+}
+
+/* 上昇＋わずかな横流れ＋消失 */
+@keyframes bubble-rise {
+    0% {
+        transform: translate(0, 0) scale(var(--scale, 1));
+        opacity: 0;
+    }
+
+    8% {
+        opacity: .55;
+    }
+
+    60% {
+        opacity: .55;
+    }
+
+    100% {
+        transform: translate(calc(var(--dx, 0px) * 6), -115vh) scale(calc(var(--scale, 1)*1.18));
+        opacity: 0;
+    }
+}
+
+/* 低スペック・省モーション環境向けに数と透明度を少し抑える */
+@media (prefers-reduced-motion: reduce) {
+    .bubble {
+        animation-duration: calc(var(--duration, 14s) * 1.5);
+        opacity: .4;
+    }
+}
+
+.contact-page-root::after {
+    content: none !important;
+    background: none !important;
+}
+
+/* まずホームの固定背景（クラゲ）を無効化 */
+body::before {
+    content: none !important;
+    background: none !important;
+}
+
+/* ← ここが .works-page-root のままだと当たりません！ */
+.contact-page-root::before {
+    content: none !important;
+}
+
+/* ABOUT と同じ #0b4a7a に統一（泡は別レイヤで表示）*/
+.contact-page-root,
+.contact-page-root html,
+.contact-page-root body {
+    background: #0b4a7a !important;
+    /* ← ABOUT と同じ色 */
+    min-height: 100dvh;
+    color: #fff;
+}
+
+/* 念のため下層は透過で、段差や帯の混ざりを防止 */
+.contact-page-root main,
+.contact-page-root section,
+.contact-page-root footer {
+    background: transparent !important;
+}
+
+/* --- 既存の .works-page-root ～ のブロックは不要なので削除 or コメントアウト --- */
+/*
+.works-page-root { ... }
+.works-page-root::before { ... }
+.works-page-root main,
+.works-page-root section,
+.works-page-root footer { ... }
+*/
+
+/* 泡レイヤ（そのまま活かす） */
+.bubble-layer {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    /* 背景より上・コンテンツより下 */
+    pointer-events: none;
+    overflow: hidden;
+}

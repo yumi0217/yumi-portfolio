@@ -1,0 +1,146 @@
+@import url("./work-rese.css");
+
+/* --- 必要ならポートフォリオ固有の微調整（任意） --- */
+
+/* メタカードの幅感（reseの例に合わせた微差調整） */
+@media (min-width: 921px) {
+    .work-body {
+        grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.1fr);
+    }
+}
+
+/* タイトルの字間や折返しをやや最適化 */
+.work-title {
+    word-break: keep-all;
+    line-height: 1.3;
+}
+
+/* スライダー画像の比率がまちまちでも揃って見えるように */
+.slider .track img {
+    object-fit: cover;
+    background: #0b1020;
+}
+
+/* 「ongoing」等のチップ色が暗背景で読みやすいよう微調整 */
+.chip-ongoing {
+    opacity: 0.95;
+}
+
+/* === Footer: 他ページと同じ配置/トーンに統一 === */
+body.work-detail .site-footer--stack {
+    background: transparent;
+    /* 背景はグラデをそのまま見せる */
+    border-top: 0;
+    box-shadow: none;
+    color: var(--ink-soft);
+    padding: 28px 16px 40px;
+}
+
+body.work-detail .site-footer--stack .footer-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    text-align: center;
+}
+
+body.work-detail .site-footer--stack .copy {
+    margin: 0 0 16px;
+    font-size: 14px;
+    color: var(--ink-soft);
+}
+
+body.work-detail .site-footer--stack .footer-nav {
+    display: inline-flex;
+    gap: 24px;
+    /* 画像の見た目に合わせて間隔 */
+    font-size: 14px;
+    letter-spacing: .06em;
+}
+
+body.work-detail .site-footer--stack .footer-nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+body.work-detail .site-footer--stack .footer-nav a:hover {
+    text-decoration: underline;
+}
+
+/* 下層は透過固定（段差防止） */
+body.work-detail main,
+body.work-detail footer {
+    background: transparent !important;
+}
+
+/* 背景画像は一段下へ */
+body::before {
+    z-index: -2;
+    /* 既存が -1 なら -2 に変更 */
+}
+
+/* ==== 水泡レイヤー ==== */
+.bubble-layer {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    /* 背景画像より上、本文より下 */
+    pointer-events: none;
+    /* クリックに干渉しない */
+    overflow: hidden;
+}
+
+/* 泡の見た目（線だけ or うすい塗り） */
+.bubble {
+    position: absolute;
+    bottom: -12vh;
+    /* 画面下の外から出現 */
+    left: var(--left, 50%);
+    width: var(--size, 12px);
+    height: var(--size, 12px);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, .35);
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, .25);
+    opacity: 0;
+    transform: translate(0, 0) scale(var(--scale, 1));
+    animation: bubble-rise var(--duration, 14s) linear var(--delay, 0s) infinite;
+}
+
+/* ちょっとキラッと光る縁取り（任意） */
+.bubble::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at 30% 30%,
+            rgba(255, 255, 255, .35) 0%,
+            rgba(255, 255, 255, 0) 40%);
+    mask: radial-gradient(circle at 30% 30%, rgba(0, 0, 0, .9), transparent 60%);
+}
+
+/* 上昇＋わずかな横流れ＋消失 */
+@keyframes bubble-rise {
+    0% {
+        transform: translate(0, 0) scale(var(--scale, 1));
+        opacity: 0;
+    }
+
+    8% {
+        opacity: .55;
+    }
+
+    60% {
+        opacity: .55;
+    }
+
+    100% {
+        transform: translate(calc(var(--dx, 0px) * 6), -115vh) scale(calc(var(--scale, 1)*1.18));
+        opacity: 0;
+    }
+}
+
+/* 低スペック・省モーション環境向けに数と透明度を少し抑える */
+@media (prefers-reduced-motion: reduce) {
+    .bubble {
+        animation-duration: calc(var(--duration, 14s) * 1.5);
+        opacity: .4;
+    }
+}

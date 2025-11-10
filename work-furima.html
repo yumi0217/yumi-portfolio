@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WORK DETAIL | Yumi Portfolio</title>
+
+    <!-- 共通（ヘッダー等） -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- このページ専用 -->
+    <link rel="stylesheet" href="assets/css/work-furima.css" />
+</head>
+
+<body class="work-detail">
+    <!-- Header（共通） -->
+    <header class="site-header">
+        <nav class="nav">
+            <a class="brand" href="index.html" aria-label="Yumi Home">
+                <svg class="logo" width="30" height="30" viewBox="0 0 28 28" aria-hidden="true">
+                    <circle cx="14" cy="14" r="12" stroke="white" stroke-width="2" fill="none" />
+                    <path d="M9 12c2.2 0 4 2.2 5 5 1-2.8 2.8-5 5-5" stroke="white" stroke-width="2"
+                        stroke-linecap="round" fill="none" />
+                </svg>
+                <span class="brand-text">Yumi</span>
+            </a>
+            <div class="menu">
+                <a class="jelly-link" href="skills.html">SKILLS</a>
+                <a class="jelly-link" href="works.html">WORK</a>
+                <a class="jelly-link" href="about.html">ABOUT</a>
+                <a class="jelly-link" href="contact.html">CONTACT</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="work-page">
+        <div class="work-header">
+            <h1 class="work-title">フリマアプリ</h1>
+            <div class="chips">
+                <span class="chip chip-private">個人開発</span>
+                <!-- 必要なら <span class="chip chip-ongoing">ongoing</span> -->
+            </div>
+        </div>
+
+        <section class="work-body">
+            <!-- スライダー -->
+            <figure class="slider" aria-label="作品画像ギャラリー">
+                <button class="nav-btn prev" aria-label="前の画像">&#10094;</button>
+                <div class="track" id="slider-track">
+                    <!-- 画像は必要数だけ追加してOK -->
+                    <img src="assets/img/works/furima/ホーム画面.png" alt="画面1のスクリーンショット">
+                    <img src="assets/img/works/furima/会員登録画面.png" alt="画面2のスクリーンショット">
+                    <img src="assets/img/works/furima/ログイン画面.png" alt="画面3のスクリーンショット">
+                    <img src="assets/img/works/furima/プロフィール設定画面.png" alt="画面4のスクリーンショット">
+                    <img src="assets/img/works/furima/出品画面.png" alt="画面5のスクリーンショット">
+                    <img src="assets/img/works/furima/マイページ画面.png" alt="画面6のスクリーンショット">
+                    <img src="assets/img/works/furima/stripe画面.png" alt="画面7のスクリーンショット">
+                    <img src="assets/img/works/furima/購入手続き画面.png" alt="画面8のスクリーンショット">
+                    <img src="assets/img/works/furima/購入画面.png" alt="画面9のスクリーンショット">
+                    <img src="assets/img/works/furima/住所変更画面.png" alt="画面10のスクリーンショット">
+                </div>
+                <button class="nav-btn next" aria-label="次の画像">&#10095;</button>
+                <div class="dots" id="slider-dots" aria-hidden="true"></div>
+            </figure>
+
+            <!-- テキスト情報 -->
+            <aside class="work-meta">
+                <dl class="meta">
+                    <dt>期間</dt>
+                    <dd>2025年5月 〜 2ヵ月</dd>
+
+                    <dt>概要</dt>
+                    <dd>Laravelを用いて開発したフリマアプリです。ユーザーは会員登録・ログイン後に商品を出品・購入・コメント投稿できます。
+                        商品画像はStorageに保存し、購入済み商品には「SOLD」ラベルを自動表示。検索やマイリスト機能も実装し、ユーザーが快適に取引できるUIを意識しました。</dd>
+
+                    <dt>URL</dt>
+                    <dd>
+                        <a class="ext" href="#" target="_blank" rel="noopener">デモ停止中</a>
+                    </dd>
+
+                    <dt>使用技術</dt>
+                    <dd>
+                        <ul class="tech">
+                            <li>PHP 8 / Laravel</li>
+                            <li>HTML5 / CSS3</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>MySQL</li>
+                            <li>Docker（MySQL / php-fpm / nginx）</li>
+                        </ul>
+                    </dd>
+                </dl>
+
+                <div class="back-link">
+                    <a class="jelly-link" href="works.html">Works 一覧へ</a>
+                </div>
+            </aside>
+        </section>
+    </main>
+    <div class="bubble-layer" aria-hidden="true"></div>
+    <footer class="site-footer site-footer--stack">
+        <div class="footer-inner">
+            <p class="copy">© 2025 Yumi Takahashi Portfolio</p>
+            <nav class="footer-nav" aria-label="Footer">
+                <a href="index.html">HOME</a>
+                <a href="skills.html">SKILLS</a>
+                <a href="works.html">WORKS</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+        </div>
+    </footer>
+
+
+    <script src="assets/js/work-detail.js"></script>
+    <script src="assets/js/main.js" defer></script>
+</body>
+
+</html>

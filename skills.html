@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SKILLS | Yumi Portfolio</title>
+
+    <!-- 共通スタイル（ホームと同じ） -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- このページ専用 -->
+    <link rel="stylesheet" href="assets/css/skills.css" />
+</head>
+
+<body class="skills-page-root">
+
+    <!-- ヘッダー：ホームと同じ構造 -->
+    <header class="site-header">
+        <nav class="nav">
+            <a class="brand" href="index.html" aria-label="Yumi Home">
+                <!-- ✅ インラインSVGロゴ -->
+                <svg class="logo" width="30" height="30" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+                    <circle cx="14" cy="14" r="12" stroke="white" stroke-width="2" fill="none" />
+                    <path d="M9 12c2.2 0 4 2.2 5 5 1-2.8 2.8-5 5-5" stroke="white" stroke-width="2"
+                        stroke-linecap="round" fill="none" />
+                </svg>
+                <span class="brand-text">Yumi</span>
+            </a>
+            <div class="menu">
+                <a class="jelly-link" href="skills.html" aria-current="page">SKILLS</a>
+                <a class="jelly-link" href="works.html">WORK</a>
+                <a class="jelly-link" href="about.html">ABOUT</a>
+                <a class="jelly-link" href="contact.html">CONTACT</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="skills-page">
+        <section class="skills-hero">
+            <h1 class="skills-title">SKILLS</h1>
+            <p class="skills-note">フリマ・勤怠管理・予約アプリで実際に使用した技術を掲載しています。</p>
+        </section>
+
+        <!-- ▼ 実際に扱ったスキル（AWS / Python は除外） -->
+        <section class="skills-grid">
+            <article class="skill-card">
+                <h2 class="skill-head">PHP 8.x / Laravel</h2>
+                <p class="skill-sub">Fortify認証・Eloquent・Stripe決済など実務相当の開発経験。</p>
+                <div class="pills">
+                    <span class="pill">Fortify</span><span class="pill">Mail</span>
+                    <span class="pill">Storage</span><span class="pill">Seeder</span>
+                </div>
+                <div class="stars"><span class="on">★★★★★</span></div>
+            </article>
+
+            <article class="skill-card">
+                <h2 class="skill-head">HTML5 / CSS3</h2>
+                <p class="skill-sub">Figma再現・レスポンシブデザイン・アニメーション実装。</p>
+                <div class="pills">
+                    <span class="pill">レスポンシブ</span><span class="pill">CSS設計</span>
+                    <span class="pill">アニメーション</span>
+                </div>
+                <div class="stars"><span class="on">★★★★★</span></div>
+            </article>
+
+            <article class="skill-card">
+                <h2 class="skill-head">JavaScript (ES6+)</h2>
+                <p class="skill-sub">UI操作やバリデーション・QR機能などを実装。</p>
+                <div class="pills">
+                    <span class="pill">DOM操作</span><span class="pill">fetch API</span>
+                </div>
+                <div class="stars"><span class="on">★★★★☆</span></div>
+            </article>
+
+            <article class="skill-card">
+                <h2 class="skill-head">MySQL / MariaDB</h2>
+                <p class="skill-sub">ER設計・外部キー設定・Seederによるテストデータ投入。</p>
+                <div class="pills">
+                    <span class="pill">ER図</span><span class="pill">Migration</span>
+                    <span class="pill">FK制約</span>
+                </div>
+                <div class="stars"><span class="on">★★★★☆</span></div>
+            </article>
+
+            <article class="skill-card">
+                <h2 class="skill-head">Tailwind CSS / Bootstrap</h2>
+                <p class="skill-sub">Tailwindで新規デザイン構築、Bootstrapで既存調整。</p>
+                <div class="pills">
+                    <span class="pill">Tailwind</span><span class="pill">Bootstrap</span>
+                </div>
+                <div class="stars"><span class="on">★★★☆☆</span></div>
+            </article>
+
+            <article class="skill-card">
+                <h2 class="skill-head">Docker / Docker Compose</h2>
+                <p class="skill-sub">nginx + php-fpm + MySQL の開発環境構築。</p>
+                <div class="pills">
+                    <span class="pill">nginx</span><span class="pill">php-fpm</span>
+                    <span class="pill">MySQL 8</span>
+                </div>
+                <div class="stars"><span class="on">★★★★☆</span></div>
+            </article>
+
+            <article class="skill-card">
+                <h2 class="skill-head">Git / GitHub</h2>
+                <p class="skill-sub">ブランチ運用・Pull Request・Issue管理。</p>
+                <div class="pills">
+                    <span class="pill">Git Flow</span><span class="pill">PRレビュー</span>
+                </div>
+                <div class="stars"><span class="on">★★★★☆</span></div>
+            </article>
+
+            <article class="skill-card">
+                <h2 class="skill-head">Stripe 決済連携</h2>
+                <p class="skill-sub">テストモードでカード・コンビニ決済導入。</p>
+                <div class="pills">
+                    <span class="pill">Checkout</span><span class="pill">Webhook</span>
+                </div>
+                <div class="stars"><span class="on">★★★☆☆</span></div>
+            </article>
+        </section>
+
+        <!-- ▼ 学習予定 / 習得中（ここに AWS / Python を移動） -->
+        <section class="skills-learning">
+            <h2 class="skills-learning-title">Learning / Plan（学習予定）</h2>
+
+            <div class="skills-grid">
+                <article class="skill-card is-learning">
+                    <h3 class="skill-head">AWS（S3 / EC2 / RDS）</h3>
+                    <p class="skill-sub">ポートフォリオ公開に向けて検証中（※実案件・個人開発では未使用）。</p>
+                    <div class="pills">
+                        <span class="pill">S3</span><span class="pill">EC2</span><span class="pill">RDS</span>
+                    </div>
+                </article>
+
+                <article class="skill-card is-learning">
+                    <h3 class="skill-head">Python</h3>
+                    <p class="skill-sub">基礎学習・スクリプト作成を予定（※Webアプリは未着手）。</p>
+                    <div class="pills">
+                        <span class="pill">学習予定</span><span class="pill">CLI</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ★評価の凡例（経験スキル向けの指標として残す） -->
+        <section class="legend">
+            <h3 class="legend-title">★評価の基準</h3>
+            <ul class="legend-list">
+                <li>★★★★★：実務経験があり特に熟知している</li>
+                <li>★★★★☆：実務経験あり</li>
+                <li>★★★☆☆：実務経験はあるが使用期間が短い</li>
+                <li>★★☆☆☆：個人開発の経験あり</li>
+                <li>★☆☆☆☆：基本的な学習を終えた</li>
+            </ul>
+        </section>
+    </main>
+
+    <div class="bubble-layer" aria-hidden="true"></div>
+
+    <footer class="site-footer">
+        <p class="footer-copy">© 2025 Yumi Takahashi Portfolio</p>
+        <nav class="footer-nav" aria-label="Footer">
+            <a href="index.html">HOME</a>
+            <a href="skills.html" aria-current="page">SKILLS</a>
+            <a href="works.html">WORKS</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </footer>
+
+    <script src="assets/js/main.js" defer></script>
+
+</body>
+
+</html>

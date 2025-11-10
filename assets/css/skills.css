@@ -1,0 +1,336 @@
+:root {
+    --card: rgba(255, 255, 255, .08);
+    --card-border: rgba(255, 255, 255, .16);
+    --glow: rgba(120, 190, 255, .18);
+    --ink-soft: #cfe6ff;
+    --maxw: 1120px;
+}
+
+/* ===== SKILLS ページ固有の背景とヘッダー調整 ===== */
+
+/* ホーム共通のクラゲ背景(body::before)をこのページでは消す */
+.skills-page-root::before {
+    content: none !important;
+}
+
+/* 濃→淡のブルーグラデ＋うっすら放射グラデで奥行き */
+.skills-page-root {
+    background:
+        radial-gradient(120% 100% at 20% -10%, rgba(120, 190, 255, .18), rgba(120, 190, 255, 0) 60%),
+        linear-gradient(180deg, #043056 0%, #0b4a7a 45%, #0d5b97 100%);
+    min-height: 100dvh;
+}
+
+/* ヘッダーは読みやすく薄くブラー&影（ホームの透明を上書き） */
+.skills-page-root .site-header {
+    background: linear-gradient(180deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, 0));
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+/* ヒーローの余白を微調整（見出しを下げすぎない） */
+.skills-hero {
+    margin-top: calc(-1 * var(--header-h));
+    padding-top: calc(var(--header-h) + 32px);
+}
+
+/* タイトルを少し大きくして中央に存在感 */
+.skills-title {
+    font-size: clamp(32px, 7vw, 64px);
+    letter-spacing: .08em;
+    margin: 0 0 16px;
+}
+
+/* カードはそのままでも綺麗。ほんの少し青味を強めるなら以下を上書き */
+.skill-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .06));
+    border: 1px solid rgba(255, 255, 255, .18);
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, .25),
+        inset 0 8px 22px rgba(120, 190, 255, .16);
+}
+
+/* ページ余白と横幅 */
+.skills-page {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: clamp(48px, 6vw, 72px) 16px 100px;
+}
+
+/* ページ先頭の見出し帯（軽め） */
+.skills-hero {
+    text-align: center;
+    margin-top: calc(-1 * var(--header-h));
+    padding-top: calc(var(--header-h) + 24px);
+}
+
+.skills-title {
+    font-size: clamp(28px, 6vw, 56px);
+    letter-spacing: .08em;
+    margin: 0 0 10px;
+}
+
+.skills-note {
+    color: var(--ink-soft);
+    margin: 0 0 28px;
+    font-size: 14px;
+}
+
+/* グリッド */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+}
+
+/* カード */
+.skill-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .18), inset 0 6px 18px var(--glow);
+    backdrop-filter: blur(2px);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .25), inset 0 8px 22px var(--glow);
+}
+
+.skill-head {
+    font-weight: 800;
+    margin: 0 0 6px;
+    font-size: 18px;
+}
+
+.skill-sub {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin: 0 0 10px;
+}
+
+/* ピル */
+.pills {
+    margin-bottom: 2px;
+}
+
+.pill {
+    display: inline-block;
+    font-size: 12px;
+    padding: 3px 8px;
+    border: 1px solid var(--card-border);
+    border-radius: 999px;
+    color: var(--ink-soft);
+    margin: 2px 6px 6px 0;
+    background: rgba(255, 255, 255, .05);
+}
+
+/* 星 */
+.stars {
+    margin-top: 10px;
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+.stars .on {
+    color: #ffd15c;
+}
+
+/* 凡例 */
+.legend {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, .2);
+    color: var(--ink-soft);
+    line-height: 1.9;
+}
+
+.legend-title {
+    margin: 0 0 8px;
+    font-size: 16px;
+    letter-spacing: .08em;
+}
+
+.legend-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.legend-list li {
+    margin: 2px 0;
+}
+
+/* === 背景の白膜・段差対策（上も下も同じ見た目に） === */
+/* すでに ::before を消しているので、念のため after も無効化 */
+.skills-page-root::after {
+    content: none !important;
+    background: none !important;
+}
+
+/* ページ下でフッターが食い込まないよう余白を確保 */
+.skills-page {
+    padding-bottom: 96px;
+}
+
+/* ==== フッター：背景と一体化・段差ゼロ ==== */
+.site-footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: transparent !important;
+    /* 半透明・別色を無効化 */
+    border-top: 0 !important;
+    /* 枠線で色が変わるのを防止 */
+    box-shadow: none !important;
+}
+
+.site-footer .footer-copy {
+    margin: 0 0 10px;
+    color: rgba(255, 255, 255, .85);
+    font-size: 14px;
+}
+
+.site-footer .footer-nav {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.site-footer .footer-nav a {
+    color: rgba(255, 255, 255, .9);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.site-footer .footer-nav a:hover {
+    text-decoration: underline;
+}
+
+/* === 背景色をフッターと完全一致させて固定（段差ゼロ） === */
+:root {
+    --skills-bg: #0b4a7a;
+    /* フッターと同じ色にしたい色。必要ならここを変えるだけでOK */
+}
+
+/* bodyに掛けていた放射・線形グラデを完全に無効化し、単色に固定 */
+.skills-page-root,
+.skills-page-root::before,
+.skills-page-root::after {
+    background: var(--skills-bg) !important;
+    background-image: none !important;
+}
+
+/* 念のため、ページ直下の大枠に独自背景が付いていた場合も打ち消し */
+.skills-page {
+    background: transparent !important;
+}
+
+/* フッターは背景透過のままで、単色背景がそのまま見えるように */
+.site-footer {
+    background: transparent !important;
+    border-top: 0 !important;
+    box-shadow: none !important;
+}
+
+/* 学習予定ブロックの見出し */
+.skills-learning-title {
+    margin: 56px 0 16px;
+    font-size: clamp(20px, 2.2vw, 28px);
+    letter-spacing: .05em;
+    opacity: .9;
+}
+
+/* 学習カードの控えめスタイル */
+.skill-card.is-learning {
+    opacity: .9;
+    border-style: dashed;
+}
+
+.skill-card.is-learning .skill-head {
+    position: relative;
+    padding-right: 8px;
+}
+
+.skill-card.is-learning .skill-head::after {
+    content: " / Learning";
+    font-size: .85em;
+    opacity: .7;
+}
+
+/* 背景画像は一段下へ */
+body::before {
+    z-index: -2;
+    /* 既存が -1 なら -2 に変更 */
+}
+
+/* ==== 水泡レイヤー ==== */
+.bubble-layer {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    /* 背景画像より上、本文より下 */
+    pointer-events: none;
+    /* クリックに干渉しない */
+    overflow: hidden;
+}
+
+/* 泡の見た目（線だけ or うすい塗り） */
+.bubble {
+    position: absolute;
+    bottom: -12vh;
+    /* 画面下の外から出現 */
+    left: var(--left, 50%);
+    width: var(--size, 12px);
+    height: var(--size, 12px);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, .35);
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, .25);
+    opacity: 0;
+    transform: translate(0, 0) scale(var(--scale, 1));
+    animation: bubble-rise var(--duration, 14s) linear var(--delay, 0s) infinite;
+}
+
+/* ちょっとキラッと光る縁取り（任意） */
+.bubble::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at 30% 30%,
+            rgba(255, 255, 255, .35) 0%,
+            rgba(255, 255, 255, 0) 40%);
+    mask: radial-gradient(circle at 30% 30%, rgba(0, 0, 0, .9), transparent 60%);
+}
+
+/* 上昇＋わずかな横流れ＋消失 */
+@keyframes bubble-rise {
+    0% {
+        transform: translate(0, 0) scale(var(--scale, 1));
+        opacity: 0;
+    }
+
+    8% {
+        opacity: .55;
+    }
+
+    60% {
+        opacity: .55;
+    }
+
+    100% {
+        transform: translate(calc(var(--dx, 0px) * 6), -115vh) scale(calc(var(--scale, 1)*1.18));
+        opacity: 0;
+    }
+}
+
+/* 低スペック・省モーション環境向けに数と透明度を少し抑える */
+@media (prefers-reduced-motion: reduce) {
+    .bubble {
+        animation-duration: calc(var(--duration, 14s) * 1.5);
+        opacity: .4;
+    }
+}

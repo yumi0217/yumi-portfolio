@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WORKS | Yumi Portfolio</title>
+
+    <!-- 共通スタイル（ヘッダー/タイポなど） -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- このページ専用 -->
+    <link rel="stylesheet" href="assets/css/works.css" />
+</head>
+
+<body class="works-page-root">
+    <!-- Header（共通） -->
+    <header class="site-header">
+        <nav class="nav">
+            <a class="brand" href="index.html" aria-label="Yumi Home">
+                <svg class="logo" width="30" height="30" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+                    <circle cx="14" cy="14" r="12" stroke="white" stroke-width="2" fill="none" />
+                    <path d="M9 12c2.2 0 4 2.2 5 5 1-2.8 2.8-5 5-5" stroke="white" stroke-width="2"
+                        stroke-linecap="round" fill="none" />
+                </svg>
+                <span class="brand-text">Yumi</span>
+            </a>
+            <div class="menu">
+                <a class="jelly-link" href="skills.html">SKILLS</a>
+                <a class="jelly-link" href="works.html" aria-current="page">WORK</a>
+                <a class="jelly-link" href="about.html">ABOUT</a>
+                <a class="jelly-link" href="contact.html">CONTACT</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="works-page">
+        <!-- 見出し帯 -->
+        <section class="works-hero">
+            <h1 class="works-title">WORKS</h1>
+            <p class="works-note">個人開発／学習プロジェクトの制作物一覧です。</p>
+        </section>
+
+        <!-- グリッド -->
+        <section class="works-grid">
+            <!-- 1 -->
+            <article class="work-card">
+                <a class="work-link" href="work-furima.html" aria-label="フリマアプリ">
+                    <figure class="work-thumb">
+                        <img src="assets/img/works/ホーム画面.png" alt="" />
+                    </figure>
+                    <h2 class="work-title">フリマアプリ</h2>
+                    <div class="chips">
+                        <span class="chip chip-private">private</span>
+                        <span class="chip chip-ongoing">ongoing</span>
+                    </div>
+                    <p class="work-meta">Coding / Laravel / Responsive / Design</p>
+                </a>
+            </article>
+
+            <!-- 2 -->
+            <article class="work-card">
+                <a class="work-link" href="work-attendance.html" aria-label="勤怠管理アプリ">
+                    <figure class="work-thumb">
+                        <img src="assets/img/works/勤務打刻画面.png" alt="" />
+                    </figure>
+                    <h2 class="work-title">勤怠管理アプリ</h2>
+                    <div class="chips">
+                        <span class="chip chip-private">private</span>
+                        <span class="chip chip-ongoing">ongoing</span>
+                    </div>
+                    <p class="work-meta">Coding (Laravel Fortify) / Responsive</p>
+                </a>
+            </article>
+
+            <!-- 3 -->
+            <article class="work-card">
+                <a class="work-link" href="work-rese.html" aria-label="飲食店予約アプリ">
+                    <figure class="work-thumb">
+                        <img src="assets/img/works/飲食店ホーム画面.png" alt="" />
+                    </figure>
+                    <h2 class="work-title">飲食店予約アプリ</h2>
+                    <div class="chips">
+                        <span class="chip chip-private">private</span>
+                    </div>
+                    <p class="work-meta">Coding / Calendar UI / QR（構想）</p>
+                </a>
+            </article>
+
+            <!-- 4 -->
+            <article class="work-card">
+                <a class="work-link" href="work-portfolio.html" aria-label="Yumi Portfolio">
+                    <figure class="work-thumb">
+                        <img src="assets/img/works/ポートフォリオホーム画面.png" alt="Yumi Portfolio のサムネイル" />
+                    </figure>
+                    <h2 class="work-title">Yumi Portfolio</h2>
+                    <div class="chips">
+                        <span class="chip">portfolio</span>
+                        <span class="chip chip-private">private</span>
+                        <span class="chip chip-ongoing">ongoing</span>
+                    </div>
+                    <p class="work-meta">HTML / CSS（レスポンシブ） / 共通ヘッダー・背景テーマ / WORKS一覧＆詳細</p>
+                </a>
+            </article>
+
+            <!-- Banner / Campaign Visual -->
+            <article class="work-card">
+                <a class="work-link" href="work-banner.html" aria-label="モニター募集バナー">
+                    <figure class="work-thumb">
+                        <!-- 1200×675 くらいの横長サムネを推奨 -->
+                        <img src="assets/img/works/仕事募集用バナー.png" alt="モニター募集バナーのサムネイル" />
+                    </figure>
+                    <h2 class="work-title">モニター募集バナー</h2>
+                    <div class="chips">
+                        <span class="chip">banner</span>
+                        <span class="chip">design</span>
+                        <span class="chip chip-private">private</span>
+                        <!-- 公開中なら ongoing を追加 -->
+                        <!-- <span class="chip chip-ongoing">ongoing</span> -->
+                    </div>
+                    <p class="work-meta">Campaign Visual / Typography / Glow / Layout</p>
+                </a>
+            </article>
+
+        </section>
+    </main>
+    <div class="bubble-layer" aria-hidden="true"></div>
+    <!-- ▼ 追加したフッター -->
+    <footer class="site-footer">
+        <p class="footer-copy">© 2025 Yumi Takahashi Portfolio</p>
+        <nav class="footer-nav" aria-label="Footer">
+            <a href="index.html">HOME</a>
+            <a href="skills.html">SKILLS</a>
+            <a href="works.html" aria-current="page">WORKS</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </footer>
+    <script src="assets/js/main.js" defer></script>
+</body>
+
+</html>
