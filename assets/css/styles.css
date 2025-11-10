@@ -375,3 +375,50 @@ body.home .footer-inner {
     color: #fff;
     /* 訪問済みでも紫にしない */
 }
+
+/* ===== Header responsive (Home も含む全ページ共通) ===== */
+/* メニューの文字サイズを可変にしておく */
+.menu .jelly-link {
+    font-size: clamp(12px, 2.1vw, 15px);
+}
+
+/* まずは隙間を詰める */
+@media (max-width: 980px) {
+    .menu {
+        gap: 18px;
+    }
+
+    .brand-text {
+        font-size: 24px;
+    }
+}
+
+/* さらに狭い時は 2 段折り返し可にして右寄せ */
+@media (max-width: 860px) {
+    .menu {
+        flex-wrap: wrap;
+        row-gap: 8px;
+        justify-content: flex-end;
+        max-width: min(70vw, 520px);
+    }
+}
+
+/* 極小幅：ロゴテキストを隠して横幅を確保（任意だけど実用的） */
+@media (max-width: 560px) {
+    .brand-text {
+        display: none;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav {
+        padding: 12px 14px;
+    }
+
+    .menu {
+        gap: 14px;
+    }
+}
