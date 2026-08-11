@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WORK DETAIL | Yumi Portfolio</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/work-meeting-background.css" />
+</head>
+
+<body class="work-detail">
+    <header class="site-header">
+        <nav class="nav">
+            <a class="brand" href="index.html" aria-label="Yumi Home">
+                <svg class="logo" width="30" height="30" viewBox="0 0 28 28" aria-hidden="true">
+                    <circle cx="14" cy="14" r="12" stroke="white" stroke-width="2" fill="none" />
+                    <path d="M9 12c2.2 0 4 2.2 5 5 1-2.8 2.8-5 5-5" stroke="white" stroke-width="2"
+                        stroke-linecap="round" fill="none" />
+                </svg>
+                <span class="brand-text">Yumi</span>
+            </a>
+            <div class="menu">
+                <a class="jelly-link" href="skills.html">SKILLS</a>
+                <a class="jelly-link" href="works.html">WORK</a>
+                <a class="jelly-link" href="about.html">ABOUT</a>
+                <a class="jelly-link" href="contact.html">CONTACT</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="work-page">
+        <div class="work-header">
+            <h1 class="work-title">ミーティング背景画像作成Webアプリ</h1>
+            <div class="chips">
+                <span class="chip chip-client">work</span>
+            </div>
+        </div>
+
+        <section class="work-body">
+            <!-- スライダー -->
+            <figure class="slider" aria-label="作品画像ギャラリー">
+                <button class="nav-btn prev" aria-label="前の画像">&#10094;</button>
+
+                <div class="track" id="slider-track">
+                    <img src="assets/img/works/meeting-background/背景画像作成画面.png" alt="ミーティング背景画像作成画面">
+
+                </div>
+
+                <button class="nav-btn next" aria-label="次の画像">&#10095;</button>
+                <div class="dots" id="slider-dots" aria-hidden="true"></div>
+            </figure>
+
+            <!-- メタ情報 -->
+            <aside class="work-meta">
+                <dl class="meta">
+
+                    <dt>案件</dt>
+                    <dd>業務委託案件</dd>
+
+                    <dt>制作期間</dt>
+                    <dd>2026年6月〜約3週間</dd>
+
+                    <dt>制作工数</dt>
+                    <dd>約30時間</dd>
+
+                    <dt>概要</dt>
+                    <dd>
+                        オンラインミーティングで使用する背景画像を、
+                        ブラウザ上で簡単に作成・ダウンロードできるWebアプリ。
+                        役職・漢字名・ひらがな名を入力すると、
+                        リアルタイムで背景画像をプレビューでき、
+                        完成した画像をPNG形式でダウンロードできます。
+                    </dd>
+
+                    <dt>担当</dt>
+                    <dd>
+                        要件定義・要件定義書作成、設計、実装、
+                        動作確認・調整、納品まで一貫して担当
+                    </dd>
+
+                    <dt>主な機能</dt>
+                    <dd>
+                        <ul class="tech">
+                            <li>入力内容のリアルタイムプレビュー</li>
+                            <li>役職・漢字名・ひらがな名の入力</li>
+                            <li>必須入力チェック</li>
+                            <li>PNG画像ダウンロード</li>
+                            <li>2560 × 1440pxでの画像出力</li>
+                            <li>レスポンシブ対応</li>
+                        </ul>
+                    </dd>
+
+                    <dt>使用技術</dt>
+                    <dd>
+                        <ul class="tech">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                            <li>Canvas API</li>
+                            <li>html2canvas</li>
+                        </ul>
+                    </dd>
+
+                    <dt>成果物</dt>
+                    <dd>
+                        ミーティング背景画像作成Webアプリ
+                    </dd>
+
+                </dl>
+
+                <div class="back-link">
+                    <a class="jelly-link" href="works.html">Works 一覧へ</a>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <div class="bubble-layer" aria-hidden="true"></div>
+
+    <footer class="site-footer site-footer--stack">
+        <div class="footer-inner">
+            <p class="copy">© 2025 Yumi Takahashi Portfolio</p>
+
+            <nav class="footer-nav" aria-label="Footer">
+                <a href="index.html">HOME</a>
+                <a href="skills.html">SKILLS</a>
+                <a href="works.html">WORKS</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="assets/js/work-detail.js"></script>
+    <script src="assets/js/main.js" defer></script>
+</body>
+
+</html>

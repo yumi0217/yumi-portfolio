@@ -1,0 +1,211 @@
+@import url("./work-rese.css");
+
+/* =========================================================
+   Meeting Background Generator
+   業務委託案件 詳細ページ
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   レイアウト
+   --------------------------------------------------------- */
+
+@media (min-width: 921px) {
+    .work-body {
+        grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.1fr);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   タイトル
+   --------------------------------------------------------- */
+
+.work-title {
+    word-break: keep-all;
+    line-height: 1.3;
+}
+
+
+/* ---------------------------------------------------------
+   スライダー画像
+   --------------------------------------------------------- */
+
+.slider .track img {
+    object-fit: cover;
+    background: #0b1020;
+}
+
+
+/* ---------------------------------------------------------
+   client work チップ
+   private・ongoingとは色を分ける
+   --------------------------------------------------------- */
+
+.chip-client {
+    background: rgba(204, 236, 255, 0.35) !important;
+    color: #d9f2ff !important;
+    border-color: rgba(158, 216, 245, 0.45) !important;
+}
+
+
+/* ---------------------------------------------------------
+   Footer
+   他の詳細ページと同じ配置・トーンに統一
+   --------------------------------------------------------- */
+
+body.work-detail .site-footer--stack {
+    background: transparent;
+    border-top: 0;
+    box-shadow: none;
+    color: var(--ink-soft);
+    padding: 28px 16px 40px;
+}
+
+body.work-detail .site-footer--stack .footer-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    text-align: center;
+}
+
+body.work-detail .site-footer--stack .copy {
+    margin: 0 0 16px;
+    font-size: 14px;
+    color: var(--ink-soft);
+}
+
+body.work-detail .site-footer--stack .footer-nav {
+    display: inline-flex;
+    gap: 24px;
+    font-size: 14px;
+    letter-spacing: .06em;
+}
+
+body.work-detail .site-footer--stack .footer-nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+body.work-detail .site-footer--stack .footer-nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* ---------------------------------------------------------
+   下層ページの背景
+   --------------------------------------------------------- */
+
+body.work-detail main,
+body.work-detail footer {
+    background: transparent !important;
+}
+
+
+/* 背景画像を一段下へ */
+body::before {
+    z-index: -2;
+}
+
+
+/* ---------------------------------------------------------
+   水泡レイヤー
+   --------------------------------------------------------- */
+
+.bubble-layer {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+
+/* 泡 */
+.bubble {
+    position: absolute;
+    bottom: -12vh;
+    left: var(--left, 50%);
+
+    width: var(--size, 12px);
+    height: var(--size, 12px);
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(255, 255, 255, .35);
+
+    box-shadow:
+        inset 0 0 6px rgba(255, 255, 255, .25);
+
+    opacity: 0;
+
+    transform:
+        translate(0, 0) scale(var(--scale, 1));
+
+    animation:
+        bubble-rise var(--duration, 14s) linear var(--delay, 0s) infinite;
+}
+
+
+/* 泡の光 */
+.bubble::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    background: radial-gradient(circle at 30% 30%,
+            rgba(255, 255, 255, .35) 0%,
+            rgba(255, 255, 255, 0) 40%);
+
+    mask: radial-gradient(circle at 30% 30%,
+            rgba(0, 0, 0, .9),
+            transparent 60%);
+}
+
+
+/* ---------------------------------------------------------
+   泡の上昇アニメーション
+   --------------------------------------------------------- */
+
+@keyframes bubble-rise {
+
+    0% {
+        transform:
+            translate(0, 0) scale(var(--scale, 1));
+
+        opacity: 0;
+    }
+
+    8% {
+        opacity: .55;
+    }
+
+    60% {
+        opacity: .55;
+    }
+
+    100% {
+        transform:
+            translate(calc(var(--dx, 0px) * 6),
+                -115vh) scale(calc(var(--scale, 1) * 1.18));
+
+        opacity: 0;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   省モーション対応
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .bubble {
+        animation-duration:
+            calc(var(--duration, 14s) * 1.5);
+
+        opacity: .4;
+    }
+}

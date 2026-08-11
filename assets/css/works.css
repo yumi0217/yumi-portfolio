@@ -160,6 +160,12 @@ body.works-page-root::before {
     border-color: #ffd99a;
 }
 
+.chip-client {
+    background: #ccecff;
+    color: #24445c;
+    border-color: #9ed8f5;
+}
+
 /* ==== メタ ==== */
 .work-meta {
     margin: 0 16px 16px;
